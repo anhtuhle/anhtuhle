@@ -1,4 +1,4 @@
-baseurl = "https://notes.anhtu.dev"
+baseurl = "https://notes.anhtu.dev/"
 languageCode = "en-us"
 title = "Anh Tu's notes"
 googleAnalytics = ""
