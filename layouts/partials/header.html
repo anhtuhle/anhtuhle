@@ -1,0 +1,19 @@
+<header>
+  <nav>
+    {{ range .Site.Menus.main }}
+    <a
+      href="{{ .URL }}"
+      {{
+      if
+      eq
+      .URL
+      $.Page.RelPermalink
+      }}class="active"
+      {{
+      end
+      }}
+      >{{ .Name }}</a
+    >
+    {{ end }}
+  </nav>
+</header>

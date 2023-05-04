@@ -1,0 +1,15 @@
+{{/* layouts/taxonomy/list.html */}} {{ define "main" }}
+<h1 class="heading">#{{ .Title | lower }}</h1>
+<ul class="posts">
+  {{ range .Pages }}
+  <li>
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+    <time>
+      <i>
+        {{ .Date.Format (.Site.Params.dateFormat | default "2006-01-02" ) }}
+      </i>
+    </time>
+  </li>
+  {{ end }}
+</ul>
+{{ end }}
