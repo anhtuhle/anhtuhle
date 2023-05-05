@@ -5,7 +5,7 @@
     --font-family: Verdana, sans-serif;
     --line-height: 1.5;
     --heading-font-size: 2.4rem;
-    --primary-background-color: #eee;
+    --primary-background-color: #fff;
     --secondary-background-color: #ddd;
     --line-color: #ddd;
     --additional-background-color: #ccc;
@@ -129,7 +129,7 @@
     list-style-position: inside;
   }
   blockquote {
-    border-left: 4px solid var(--line-color);
+    border-left: 4px solid var(--secondary-text-color);
     overflow: hidden;
     padding: 16px;
     color: var(--secondary-text-color);
@@ -185,7 +185,8 @@
   .posts a {
     flex: 1;
   }
-  time {
+  time,
+  .info {
     color: var(--secondary-text-color);
   }
 

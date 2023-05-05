@@ -8,7 +8,8 @@
     </a>
     <time>
       <i>
-        {{ .Date.Format (.Site.Params.dateFormat | default "2006-01-02" ) }}
+        {{ if ge .Date.Year now.Year }} {{ .Date.Format "Jan 2" }} {{ else }} {{
+        .Date.Format "Jan 2, 2006" }} {{ end }}
       </i>
     </time>
   </li>
