@@ -9,6 +9,8 @@ tags: ["note", "hugo"]
 
 So, this is my nth attempt at blogging.
 
+<!--more-->
+
 ## What is this blog about?
 
 This is a place for all of my notes and random thoughts. Sometimes I write about web development.
