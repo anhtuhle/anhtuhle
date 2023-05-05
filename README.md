@@ -1,4 +1,6 @@
-# Anh Tu's notes
+# anh tu's notes
 
-- some of my thoughts and notes
-- the theme of this blog is inspired by [bearblog.dev](http://bearblog.dev) and [sidey theme](https://sidey-jekyll.netlify.app/). feel free to use it
+## description
+
+- this blog is a place for all of my notes and random thoughts
+- the theme was inspired by the simplicity of [bearblog.dev](http://bearblog.dev/) and [sidey theme](https://sidey-jekyll.netlify.app/). feel free to use it
