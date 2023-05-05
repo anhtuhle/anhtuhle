@@ -23,7 +23,7 @@
       --secondary-background-color: #00000095;
       --primary-text-color: #e6e6e6;
       --secondary-text-color: #d4d4d4;
-      --border-line: 1px solid rgba(255, 255, 255, 0.1);
+      --border-line: 1px solid rgb(50, 60, 70);
       --header-background: rgb(21, 32, 43, 0.75);
       --link-color: #66b2ff;
       --code-block-background-color: #00000095;
@@ -38,7 +38,6 @@
     font-size: 62.5%;
   }
   body {
-    margin: 0 24px 24px;
     background-color: var(--primary-background-color);
     color: var(--primary-text-color);
     font-size: var(--body-font-size);
@@ -46,6 +45,9 @@
     text-align: left;
     word-wrap: break-word;
     line-height: var(--line-height);
+  }
+  .container {
+    margin: 0 20px 20px;
   }
   h1 {
     font-size: 2em;
@@ -64,10 +66,9 @@
     margin: auto;
     height: var(--header-height);
     display: flex;
-    gap: 16px;
+    gap: 32px;
     justify-content: center;
     align-items: center;
-    font-size: var(--header-font-size);
     border-bottom: var(--border-line);
   }
   nav a,
@@ -76,15 +77,14 @@
     text-decoration: none;
   }
   nav a:hover {
-    text-underline-offset: 4px;
+    text-underline-offset: 8px;
   }
   nav a.active {
     text-decoration: underline;
-    text-underline-offset: 4px;
+    text-underline-offset: 8px;
   }
   nav a.active:hover {
     color: var(--primary-text-color);
-    cursor: default;
   }
   main {
     max-width: var(--mobile-width);
@@ -103,7 +103,7 @@
     font-size: smaller;
   }
   table {
-    width: 100%;
+    max-width: 100%;
     border-collapse: collapse;
   }
   td,
@@ -120,17 +120,14 @@
     border-bottom: var(--border-line);
     margin: 16px auto;
   }
-  ul {
-    list-style-type: disc;
-    list-style-position: inside;
-  }
+  ul,
   ol {
-    list-style-type: decimal;
-    list-style-position: inside;
+    padding-left: 24px;
   }
   blockquote {
     padding-left: 16px;
     font-style: italic;
+    border-left: 4px solid var(--secondary-text-color);
     color: var(--secondary-text-color);
   }
   pre {
@@ -142,6 +139,7 @@
   code {
     background-color: var(--secondary-background-color);
     padding: 2px 4px;
+    border-radius: 4px;
   }
   pre code {
     background-color: transparent;
@@ -188,8 +186,8 @@
   }
 
   @media (min-width: 1200px) {
-    body {
-      margin: 0 auto 24px;
+    .container {
+      margin: 0 auto 20px;
       width: var(--desktop-width);
     }
     header {
@@ -204,7 +202,7 @@
       align-items: flex-end;
       padding-right: 32px;
       gap: 8px;
-      border: none;
+      border-bottom: none;
       border-right: var(--border-line);
     }
     main {

@@ -4,9 +4,11 @@
   {{ $.Scratch.Set "section" (replaceRE "^/([^/]+)/.*" "$1" .RelPermalink) }}
   <body class="{{ if .IsHome }}home{{ else }}{{ $.Scratch.Get "section" }}{{ end
   }}">
+  <div class="container">
     {{ partial "header.html" . }}
     <main>
       {{ block "main" . }}{{ end }}
     </main>
+  </div>
   </body>
 </html>

@@ -1,14 +1,11 @@
 {{/* layouts/taxonomy/terms.html */}} {{ define "main" }}
 <section>
   <h1>tags</h1>
-  <ul>
+  <p>
     {{ range .Data.Terms.Alphabetical }}
-    <li>
-      <a href="{{ .Page.Permalink }}">#{{ .Page.Title | lower }}</a>
-      ({{ .Count }})
-    </li>
-    {{ end }}
-  </ul>
+    <a href="{{ .Page.Permalink }}">#{{ .Page.Title | lower }}</a
+    ><sup>{{ .Count }}</sup> {{ end }}
+  </p>
 </section>
 
 {{ end }}
