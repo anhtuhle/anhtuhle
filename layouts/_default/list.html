@@ -6,12 +6,10 @@
     <a href="{{ .Params.externalLink | default .RelPermalink }}">
       {{ .Title }}
     </a>
-    <time>
-      <i>
-        {{ if ge .Date.Year now.Year }} {{ .Date.Format "Jan 2" }} {{ else }} {{
-        .Date.Format "Jan 2, 2006" }} {{ end }}
-      </i>
-    </time>
+    <em>
+      {{ if ge .Date.Year now.Year }} {{ .Date.Format "Jan 2" }} {{ else }} {{
+      .Date.Format "Jan 2, 2006" }} {{ end }}
+    </em>
   </li>
   {{- end -}} {{ end }}
 </ul>

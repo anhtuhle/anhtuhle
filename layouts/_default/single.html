@@ -1,46 +1,44 @@
 {{ define "main" }}
-<div class="post">
+<section>
 <h1>
 <center>
   {{ .Title }}
 </center>
 </h1>
-<section class="info">
-  <i>
+<p>
+  <em>
   <time>
       {{ .Date.Format (.Site.Params.dateFormat | default "Jan 2, 2006" ) }}
   </time> · <span>{{ .ReadingTime}} min read</span>
-  </i>
-</section>
-<div>
-{{ .Content | replaceRE "(<h[1-6]\\sid=\"([^\"]+)\"\\s?>)(.+)(</h[1-6]+>)" "${1}${3}<a class=\"tag\" href=\"#${2}\">#</a>${4}" | safeHTML }}
-</div>
+  </em>
+</p>
+<article>
+{{ .Content | replaceRE "(<h[1-6]\\sid=\"([^\"]+)\"\\s?>)(.+)(</h[1-6]+>)" "${1}${3}<a href=\"#${2}\">#</a>${4}" | safeHTML }}
 {{ $tags := .GetTerms "tags" }}
 {{ if $tags }}
-  <section>
+  <p>
     <strong>tags:</strong>
       {{ range $tags }}
-          <a class="tag" href="{{ .Permalink }}">#{{ .LinkTitle }}</a>
+          <a href="{{ .Permalink }}">#{{ .LinkTitle }}</a>
       {{ end }}
-  </section>
+  </p>
 {{ end }}
-</div>
+</article>
+</section>
 {{ $related := .Site.RegularPages.Related . | first 5 }}
 {{ with $related }}
 <hr />
-<section class="related">
-  <h3>
+<section>
+  <h2>
     related:
-  </h3>
+  </h2>
   <ul class="posts">
       {{ range . }}
       <li>•<a href="{{ .RelPermalink }}">{{ .Title }} </a>
-        <time>
-          <i>
+          <em>
             {{ if ge .Date.Year now.Year }} {{ .Date.Format "Jan 2" }} {{ else }} {{
               .Date.Format "Jan 2, 2006" }} {{ end }}
-          </i>
-        </time>
+          </em>
       </li>
       {{ end }}
   </ul>

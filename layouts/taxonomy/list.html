@@ -1,16 +1,16 @@
 {{/* layouts/taxonomy/list.html */}} {{ define "main" }}
-<h1 class="heading">#{{ .Title | lower }}</h1>
-<ul class="posts">
-  {{ range .Pages }}
-  <li>
-    <a href="{{ .Permalink }}">{{ .Title }}</a>
-    <time>
-      <i>
+<section>
+  <h1>#{{ .Title | lower }}</h1>
+  <ul class="posts">
+    {{ range .Pages }}
+    <li>
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+      <em>
         {{ if ge .Date.Year now.Year }} {{ .Date.Format "Jan 2" }} {{ else }} {{
         .Date.Format "Jan 2, 2006" }} {{ end }}
-      </i>
-    </time>
-  </li>
-  {{ end }}
-</ul>
+      </em>
+    </li>
+    {{ end }}
+  </ul>
+</section>
 {{ end }}
