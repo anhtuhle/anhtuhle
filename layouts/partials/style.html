@@ -154,24 +154,27 @@
   .footnotes hr {
     width: 100%;
   }
-  em {
+  aside,
+  time {
+    font-style: italic;
     font-size: var(--small-font-size);
     color: var(--secondary-text-color);
   }
 
   /* Blog posts */
-  .posts {
+  ul.posts {
+    padding: 0;
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 8px;
   }
-  .posts li {
+  ul.posts li {
     display: flex;
     align-items: center;
     gap: 8px;
   }
-  .posts a {
+  ul.posts a {
     flex: 1;
   }
   /*  Single page  */
@@ -180,9 +183,11 @@
     flex-direction: column;
     gap: 8px;
   }
-
-  article > *:not(:last-child) {
-    margin-bottom: var(--body-font-size);
+  section article {
+    margin-top: -8px;
+  }
+  article > * {
+    margin-top: var(--body-font-size);
   }
 
   @media (min-width: 1200px) {

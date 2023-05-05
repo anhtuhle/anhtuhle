@@ -5,10 +5,10 @@
     {{ range .Pages }}
     <li>
       <a href="{{ .Permalink }}">{{ .Title }}</a>
-      <em>
+      <time>
         {{ if ge .Date.Year now.Year }} {{ .Date.Format "Jan 2" }} {{ else }} {{
         .Date.Format "Jan 2, 2006" }} {{ end }}
-      </em>
+      </time>
     </li>
     {{ end }}
   </ul>
