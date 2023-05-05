@@ -9,7 +9,7 @@
     --secondary-background-color: #f5f5f5;
     --additional-background-color: #e5e5e5;
     --line-color: #e5e5e5;
-    --line: 0 1px var(--line-color);
+    --border-line: 1px solid var(--line-color);
     --primary-text-color: #333;
     --secondary-text-color: #555;
     --nav-bar-height: 64px;
@@ -24,11 +24,10 @@
       --secondary-background-color: #00000095;
       --additional-background-color: #00000095;
       --line-color: #737373;
-      --line: 0 0.25px var(--line-color);
+      --border-line: 1px solid rgba(255, 255, 255, 0.1);
       --primary-text-color: #e5e5e5;
       --secondary-text-color: #d4d4d4;
       --nav-bar-background: rgb(21, 32, 43, 0.75);
-      --nav-bar-box-shadow: 0 0.25px var(--line-color);
       --code-block-color: #00000095;
       --link-color: #66b2ff;
     }
@@ -61,7 +60,7 @@
     right: 0;
     background-color: var(--nav-bar-background);
     -webkit-backdrop-filter: blur(15px);
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(10px);
     z-index: 100;
   }
   nav {
@@ -126,7 +125,7 @@
 
   td,
   th {
-    border: 1px solid var(--line-color);
+    border: var(--border-line);
     padding: 8px 16px;
   }
 
@@ -136,9 +135,8 @@
   }
 
   hr {
-    height: 5px;
     border: 0;
-    box-shadow: var(--line);
+    border-bottom: var(--border-line);
     margin: 16px auto;
   }
 
@@ -242,14 +240,6 @@
   }
 
   @media (min-width: 1200px) {
-    :root {
-      --nav-bar-box-shadow: 1px 0 var(--line-color);
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --nav-bar-box-shadow: 0.25px 0 var(--line-color);
-      }
-    }
     body {
       margin: 0 auto 24px;
       max-width: var(--desktop-width);
@@ -266,6 +256,8 @@
       align-items: flex-end;
       padding-right: 32px;
       gap: 8px;
+      box-shadow: none;
+      border-right: var(--border-line);
     }
     main {
       margin: 32px 0 0 auto;
