@@ -1,12 +1,10 @@
 +++
 author = "Anh Tu"
 title = "Markdown Syntax Guide"
-date = "2019-03-11"
+date = "2023-01-01"
 description = "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags = [
-    "markdown",
-    "css",
-    "html",
+"markdown", "css", "html"
 ]
 +++
 
