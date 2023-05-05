@@ -5,22 +5,31 @@
     --font-family: Verdana, sans-serif;
     --line-height: 1.5;
     --heading-font-size: 2.4rem;
-    --primary-background-color: #fff;
-    --secondary-background-color: #ddd;
-    --line-color: #ddd;
-    --additional-background-color: #ccc;
-    --primary-text-color: #111;
-    --secondary-text-color: #333;
+    --primary-background-color: #fafafa;
+    --secondary-background-color: #f5f5f5;
+    --additional-background-color: #e5e5e5;
+    --line-color: #e5e5e5;
+    --line: 0 1px var(--line-color);
+    --primary-text-color: #333;
+    --secondary-text-color: #555;
+    --nav-bar-height: 64px;
+    --nav-bar-background: rgba(250, 250, 250, 0.75);
+    --nav-bar-box-shadow: 0px 1px 3px #00000025;
     --link-color: #0070c9;
     --code-block-color: #333;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --primary-background-color: #0a1929;
-      --secondary-background-color: #00000055;
-      --primary-text-color: #eee;
-      --secondary-text-color: #ccc;
-      --code-block-color: #00000055;
+      --primary-background-color: #15202b;
+      --secondary-background-color: #00000095;
+      --additional-background-color: #00000095;
+      --line-color: #737373;
+      --line: 0 0.25px var(--line-color);
+      --primary-text-color: #e5e5e5;
+      --secondary-text-color: #d4d4d4;
+      --nav-bar-background: rgb(21, 32, 43, 0.75);
+      --nav-bar-box-shadow: 0 0.25px var(--line-color);
+      --code-block-color: #00000095;
       --link-color: #66b2ff;
     }
   }
@@ -34,27 +43,35 @@
   }
 
   body {
-    max-width: var(--mobile-width);
-    margin: auto;
+    margin: 0 24px 24px;
     background-color: var(--primary-background-color);
     color: var(--primary-text-color);
     font-size: 1.6rem;
     font-family: var(--font-family);
-    padding: 0 24px 24px;
     text-align: left;
     word-wrap: break-word;
     overflow-wrap: break-word;
     line-height: var(--line-height);
   }
 
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--nav-bar-background);
+    backdrop-filter: blur(15px);
+    z-index: 100;
+  }
   nav {
+    margin: auto;
+    height: var(--nav-bar-height);
     display: flex;
     gap: 16px;
     justify-content: center;
+    align-items: center;
     font-size: var(--heading-font-size);
-    padding: 24px 0 16px;
-    border-bottom: 1px solid var(--line-color);
-    margin-bottom: 16px;
+    box-shadow: var(--nav-bar-box-shadow);
   }
   nav a {
     text-decoration: none;
@@ -67,6 +84,11 @@
   nav a.active:hover {
     color: var(--primary-text-color);
     cursor: default;
+  }
+
+  main {
+    max-width: var(--mobile-width);
+    margin: 80px auto 0px;
   }
 
   .heading {
@@ -104,18 +126,18 @@
   td,
   th {
     border: 1px solid var(--line-color);
-    padding: 16px;
+    padding: 8px 16px;
   }
 
   th {
-    padding: 16px;
-    text-align: center;
-    background-color: var(--secondary-background-color);
+    font-weight: bold;
+    border-bottom-width: 2px;
   }
 
   hr {
+    height: 5px;
     border: 0;
-    border-top: 1px solid var(--line-color);
+    box-shadow: var(--line);
     margin: 16px auto;
   }
 
@@ -131,9 +153,10 @@
   blockquote {
     border-left: 4px solid var(--secondary-text-color);
     overflow: hidden;
-    padding: 16px;
-    color: var(--secondary-text-color);
-    background-color: var(--secondary-background-color);
+    padding: 8px 16px;
+
+    color: var(--additional-text-color);
+    background-color: var(--additional-background-color);
     page-break-inside: avoid;
     font-size: 1.5rem;
   }
@@ -141,18 +164,18 @@
   pre {
     max-width: 100%;
     display: block;
-    background: var(--secondary-background-color);
+    background: var(--additional-background-color);
     font-size: 1.5rem;
     white-space: pre;
     word-wrap: break-word;
     overflow: auto;
     page-break-inside: avoid;
-    padding: 16px;
+    padding: 8px 16px;
   }
 
   code {
-    background-color: var(--secondary-background-color);
-    padding: 4px;
+    background-color: var(--additional-background-color);
+    padding: 2px;
   }
 
   pre code {
@@ -197,7 +220,6 @@
     gap: 16px;
   }
   .post div {
-    text-align: justify;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -219,26 +241,33 @@
   }
 
   @media (min-width: 1200px) {
+    :root {
+      --nav-bar-box-shadow: 1px 0 var(--line-color);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --nav-bar-box-shadow: 0.25px 0 var(--line-color);
+      }
+    }
     body {
+      margin: 0 auto 24px;
       max-width: var(--desktop-width);
-      padding: 32px 0 24px 0;
     }
     header {
-      position: fixed;
       width: calc(var(--desktop-width) - var(--mobile-width) - 32px);
+      top: initial;
+      left: initial;
+      right: initial;
     }
     nav {
+      height: 100%;
       flex-direction: column;
       align-items: flex-end;
-      margin-bottom: 0px;
-      padding: 0 32px 0 0;
-      border-bottom: none;
-      border-right: 1px solid var(--line-color);
+      padding-right: 32px;
       gap: 8px;
     }
     main {
-      max-width: var(--mobile-width);
-      margin-left: auto;
+      margin: 32px 0 0 auto;
     }
   }
 </style>
