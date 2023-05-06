@@ -4,7 +4,9 @@ description: ""
 author: "Anh Tu"
 date: 2023-05-05T23:57:36+07:00
 draft: false
-tags: ["note", "hugo"]
+tags:
+  - note
+  - hugo
 ---
 
 So, this is my nth attempt at blogging.
