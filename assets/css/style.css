@@ -73,6 +73,7 @@ nav a,
   text-decoration: none;
 }
 nav a.active {
+  -webkit-text-decoration: underline 1px;
   text-decoration: underline 1px;
   text-underline-offset: 4px;
 }
@@ -85,6 +86,7 @@ a {
 }
 a:hover {
   color: var(--link-color);
+  -webkit-text-decoration: underline 1px;
   text-decoration: underline 1px;
   text-underline-offset: 4px;
 }
@@ -163,10 +165,11 @@ ul.posts {
 }
 ul.posts li {
   display: flex;
-  gap: 8px;
+  justify-content: space-between;
+  gap: 16px;
 }
-ul.posts a {
-  flex: 1;
+ul.posts li time {
+  flex-shrink: 0;
 }
 /*  Single page  */
 section {
@@ -186,6 +189,7 @@ h3,
 h4,
 h5,
 h6 {
+  -webkit-text-decoration: underline 1px;
   text-decoration: underline 1px;
   text-underline-offset: 4px;
 }
