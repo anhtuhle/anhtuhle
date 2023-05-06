@@ -1,21 +1,23 @@
 <header>
   <nav>
     {{ range .Site.Menus.main }}
-    <h2>
-      <a
-        href="{{ .URL }}"
-        {{
-        if
-        eq
-        .URL
-        $.Page.RelPermalink
-        }}class="active"
-        {{
-        end
-        }}
-        >{{ .Name }}</a
-      >
-    </h2>
+    <a
+      href="{{ .URL }}"
+      {{
+      if
+      eq
+      .URL
+      $.Page.RelPermalink
+      }}class="active"
+      aria-current="page"
+      {{
+      end
+      }}
+    >
+      {{ if eq .URL $.Page.RelPermalink }}
+      <h1>{{ .Name }}</h1>
+      {{ else }}{{ .Name }}{{ end }}
+    </a>
     {{ end }}
   </nav>
 </header>

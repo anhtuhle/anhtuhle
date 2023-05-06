@@ -1,13 +1,9 @@
 {{ define "main" }}
 <section>
   <h1>{{ .Title }}</h1>
-  <p>
-    <time>
-      {{ .Date.Format (.Site.Params.dateFormat | default "02/01/2006" ) }}
-    </time>
-  </p>
-  <article>
-    {{ .Content | replaceRE "(<h[1-6]\\sid=\"([^\"]+)\"\\s?>)(.+)(</h[1-6]+>)" "${1}${3}<a href=\"#${2}\">#</a>${4}" | safeHTML }}
-  </article>
+  <aside>
+    {{ .Date.Format (.Site.Params.dateFormat | default "02/01/2006" ) }}
+  </aside>
+  <article>{{ .Content }}</article>
 </section>
 {{ end }}
