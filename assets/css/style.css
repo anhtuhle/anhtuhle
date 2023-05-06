@@ -73,8 +73,8 @@ nav a,
   text-decoration: none;
 }
 nav a.active {
-  -webkit-text-decoration: underline 1px;
-  text-decoration: underline 1px;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
   text-underline-offset: 4px;
 }
 nav a.active:hover {
@@ -86,8 +86,8 @@ a {
 }
 a:hover {
   color: var(--link-color);
-  -webkit-text-decoration: underline 1px;
-  text-decoration: underline 1px;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
   text-underline-offset: 4px;
 }
 sup {
@@ -189,8 +189,8 @@ h3,
 h4,
 h5,
 h6 {
-  -webkit-text-decoration: underline 1px;
-  text-decoration: underline 1px;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
   text-underline-offset: 4px;
 }
 
