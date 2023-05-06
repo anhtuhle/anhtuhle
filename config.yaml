@@ -1,0 +1,58 @@
+baseurl: "https://notes.anhtu.dev/"
+languageCode: en-us
+title: anhtu's notes
+googleAnalytics: G-F9LS1WTQ4E
+disqusShortname: ""
+preserveTaxonomyNames: true
+footnotereturnlinkcontents: ↩
+disableHugoGeneratorInject: true
+pluralizeListTitles: false
+pygmentsCodeFences: false
+pygmentsUseClasses: false
+minify: false
+paginate: 999
+disableKinds:
+  - section
+  - categories
+  - tags
+menu:
+  main:
+    - name: notes
+      pageRef: /
+      weight: 10
+    - name: about
+      pageRef: /about
+      weight: 20
+    - name: tags
+      pageRef: /tags
+      weight: 30
+permalinks:
+  posts: "/:filename/"
+params:
+  description: some thoughts and notes of anh tu
+frontmatter:
+  author: Anh Tu
+  github: "https://github.com/anhtuhle"
+  twitter: ""
+sitemap:
+  changefreq: monthly
+  filename: sitemap.xml
+  priority: 0.5
+outputFormats:
+  RSS:
+    mediatype: application/rss
+    baseName: atom
+  JSON:
+    mediatype: application/json
+    baseName: feed
+related:
+  includeNewer: true
+  threshold: 85
+  toLower: false
+  indices:
+    - name: tags
+      weight: 80
+    - name: keywords
+      weight: 40
+    - name: date
+      weight: 10
