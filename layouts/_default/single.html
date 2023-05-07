@@ -27,7 +27,7 @@
   <ul class="posts">
     {{ range . }}
     <li>
-      •<a href="{{ .RelPermalink }}">{{ .Title }} </a>
+      <a href="{{ .RelPermalink }}">{{ .Title }} </a>
       <time>
         {{ if ge .Date.Year now.Year }} {{ .Date.Format "Jan 2" }} {{ else }} {{
         .Date.Format "Jan 2, 2006" }} {{ end }}
