@@ -119,6 +119,7 @@ ol {
 blockquote {
   padding-left: 16px;
   font-style: italic;
+  border-left: var(--border-line);
   color: var(--secondary-text-color);
 }
 pre {
