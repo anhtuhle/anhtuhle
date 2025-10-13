@@ -1,5 +1,5 @@
 ---
-title: "New"
+title: "New post"
 description: ""
 author: "Anh Tu"
 date: "2025-10-13T09:58:38+07:00"
@@ -9,4 +9,4 @@ tags:
   - simple
 ---
 
-tryna test the tag page
+tryna test something
