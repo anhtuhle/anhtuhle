@@ -7,8 +7,8 @@
       {{ .Title }}
     </a>
     <time>
-      {{ if ge .Date.Year now.Year }} {{ .Date.Format "Jan 2" }} {{ else }} {{
-      .Date.Format "Jan 2, 2006" }} {{ end }}
+      {{ if ge .Date.Year now.Year }} {{ .Date.Format "jan 2" }} {{ else }} {{
+      .Date.Format "jan 2, 2006" }} {{ end }}
     </time>
   </li>
   {{- end -}} {{ end }}
