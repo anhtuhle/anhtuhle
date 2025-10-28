@@ -3,7 +3,7 @@ title: "Hello, World!"
 description: ""
 author: "Anh Tu"
 date: 2023-05-05T23:57:36+07:00
-draft: true
+draft: false
 tags:
   - note
   - hugo
