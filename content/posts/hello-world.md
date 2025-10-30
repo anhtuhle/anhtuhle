@@ -29,4 +29,4 @@ The design was mainly inspired by the simplicity of the no-nonsense blogging pla
 
 At first, I tried to write as few CSS lines as possible. Just a simple mobile view for all devices. But the beauty of the sidey design was so tempting that I ended up writing CSS for the desktop view as well.
 
-So, that's my story. If you having trouble reading this blog post, it's because English is not my native language and ChatGPT sucks at writing (Just kidding, I would never let ChatGPT write my post. Or would I?).
+So, that's my story. If you having trouble reading this blog post, it's because English is not my native language and ChatGPT sucks at writing.
