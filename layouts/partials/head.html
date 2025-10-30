@@ -12,15 +12,11 @@
     media="(prefers-color-scheme: dark)"
     content="#15202b"
   />
-  <meta
-    name="google-site-verification"
-    content="5kGlA8-R3nJOu41RPLOzXldzAPNcbhdxiQ4tT60VzI8"
-  />
   <title>
     {{ if eq .IsHome true }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{
     .Site.Title }}{{ end }}
   </title>
-  <meta name="description" content="{{ if ne .Description " " }}{{ .Description
+  <meta name="description" content="{{ if ne .Description "" }}{{ .Description
   }}{{ else }}{{ .Site.Params.description }}{{ end }}"> {{ template
   "_internal/opengraph.html" . }} {{ template "_internal/schema.html" . }} {{
   template "_internal/twitter_cards.html" . }}
@@ -43,11 +39,7 @@
   />
   {{ $style := resources.Get "css/style.css" | minify }}
   <style>
-    {
-        {
-            $style.Content | safeCSS
-        }
-    }
+    {{ $style.Content | safeCSS }}
   </style>
   {{ if .IsHome -}}
   <script type="application/ld+json">
@@ -72,131 +64,45 @@
         "headline": "{{ .Title | safeJS }}",
         "alternativeHeadline": "{{ .Params.lead }}",
         "description": "{{ if .Description }}{{ .Description | safeJS }}{{ else }}{{if .IsPage}}{{ .Summary  }}{{ end }}{{ end }}",
-        "inLanguage": {
-            {.Site.LanguageCode |
-                    default "en-us"
-            }
-        },
+        "inLanguage": {{ .Site.LanguageCode | default "en-us" }},
         "isFamilyFriendly": "true",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "{{ .Permalink }}"
         },
-        "author": {
+        "author" : {
             "@type": "Person",
             "name": "{{ $author }}"
         },
-        "creator": {
+        "creator" : {
             "@type": "Person",
             "name": "{{ $author }}"
         },
-        "accountablePerson": {
+        "accountablePerson" : {
             "@type": "Person",
             "name": "{{ $author }}"
         },
-        "copyrightHolder": "{{ $org_name }}",
-        "copyrightYear": "{{ .Date.Format "
-        2006 " }}",
-        "dateCreated": "{{ .Date.Format "
-        2006 - 01 - 02 T15: 04: 05.00 Z " | safeHTML }}",
-        "datePublished": "{{ .PublishDate.Format "
-        2006 - 01 - 02 T15: 04: 05.00 Z " | safeHTML }}",
-        "dateModified": "{{ .Lastmod.Format "
-        2006 - 01 - 02 T15: 04: 05.00 Z " | safeHTML }}",
-        "publisher": {
-            "@type": "Organization",
-            "name": {
-                {
-                    $org_name
-                }
-            },
-            "url": {
-                {.Site.BaseURL
-                }
-            },
+        "copyrightHolder" : "{{ $org_name }}",
+        "copyrightYear" : "{{ .Date.Format "2006" }}",
+        "dateCreated": "{{ .Date.Format "2006-01-02T15:04:05.00Z" | safeHTML }}",
+        "datePublished": "{{ .PublishDate.Format "2006-01-02T15:04:05.00Z" | safeHTML }}",
+        "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05.00Z" | safeHTML }}",
+        "publisher":{
+            "@type":"Organization",
+            "name": {{ $org_name }},
+            "url": {{ .Site.BaseURL }},
             "logo": {
                 "@type": "ImageObject",
                 "url": "{{ .Site.Params.logo | absURL }}",
-                "width": "32",
-                "height": "32"
+                "width":"32",
+                "height":"32"
             }
         },
-        "image": {
-            {
-                if .Params.images
-            }
-        }[{
-            {
-                range $i, $e: = .Params.images
-            }
-        } {
-            {
-                if $i
-            }
-        }, {
-            {
-                end
-            }
-        } {
-            {
-                $e | absURL
-            }
-        } {
-            {
-                end
-            }
-        }] {
-            {
-                else
-            }
-        } {
-            {.Site.Params.logo | absURL
-            }
-        } {
-            {
-                end
-            }
-        },
-        "url": "{{ .Permalink }}",
-        "wordCount": "{{ .WordCount }}",
-        "genre": [{
-                {
-                    range $index, $tag: = .Params.tags
-                }
-            } {
-                {
-                    if $index
-                }
-            }, {
-                {
-                    end
-                }
-            }
-            "{{ $tag }}" {
-                {
-                    end
-                }
-            }
-        ],
-        "keywords": [{
-                {
-                    range $index, $tag: = .Params.tags
-                }
-            } {
-                {
-                    if $index
-                }
-            }, {
-                {
-                    end
-                }
-            }
-            "{{ $tag }}" {
-                {
-                    end
-                }
-            }
-        ]
+        "image": {{ if .Params.images }}[{{ range $i, $e := .Params.images }}{{ if $i }}, {{ end }}{{ $e | absURL }}{{ end }}]{{ else}}{{.Site.Params.logo | absURL }}{{ end }},
+        "url" : "{{ .Permalink }}",
+        "wordCount" : "{{ .WordCount }}",
+        "genre" : [ {{ range $index, $tag := .Params.tags }}{{ if $index }}, {{ end }}"{{ $tag }}" {{ end }}],
+        "keywords" : [ {{ range $index, $tag := .Params.tags }}{{ if $index }}, {{ end }}"{{ $tag }}" {{ end }}]
     }
   </script>
   {{ end }}
