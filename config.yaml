@@ -28,10 +28,10 @@ menu:
 permalinks:
   posts: "/:filename/"
 params:
-  description: some thoughts and notes of anh tu
+  description: some thoughts and notes by anh tu
 frontmatter:
   author: Anh Tu
-  github: "https://github.com/anhtuhle"
+  github: "https://github.com/anhtuhle/"
   twitter: ""
 sitemap:
   changefreq: monthly
